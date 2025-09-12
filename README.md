@@ -21,6 +21,6 @@ Three Changes:
 
 Games are not complete without sound, so I added background music. It took me like 10-15 mintues to figure it out. 
 
-I added sound affects to the gun so it sounds like its shooting.
+I added sound affects to the gun so it sounds like its shooting. It took me like 10-15 mins.
 
-The game over screen seemd unfinshed without an option to play again so I added a restart button.
+The game over screen seemd unfinshed without an option to play again so I added a restart button. I had some trouble so it took me like 30-45 mins.
