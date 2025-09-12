@@ -1,5 +1,7 @@
 extends Node2D
 
+func music():
+	%Backgroundmusic.volume_db = -10
 
 func spawn_mob():
 	%PathFollow2D.progress_ratio = randf()
