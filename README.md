@@ -5,6 +5,8 @@ Background Music: https://pixabay.com/music/beats-lofi-background-music-388291/
 
 Gun shot sound effect: https://pixabay.com/sound-effects/gun-shot-359196/
 
+Making a restart button: https://www.youtube.com/shorts/WOeWPPlkvSo
+
 Assets:
 happy_boo.tscn
 slime.tscn
@@ -20,3 +22,5 @@ Three Changes:
 Games are not complete without sound, so I added background music. It took me like 10-15 mintues to figure it out. 
 
 I added sound affects to the gun so it sounds like its shooting.
+
+The game over screen seemd unfinshed without an option to play again so I added a restart button.
