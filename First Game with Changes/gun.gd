@@ -14,6 +14,8 @@ func shoot():
 	new_bullet.global_transform = %ShootingPoint.global_transform
 	%ShootingPoint.add_child(new_bullet)
 
+	%GunShot.play()
+
 
 func _on_timer_timeout() -> void:
 	shoot()
