@@ -34,3 +34,9 @@ A timer that counts up and when you survive for 20 seconds, your character gets 
 When slimes die, they have a chance to drop a health potion and it heals 20 health points. This took me around 1.5 hours.
 
 When you kill 50 slimes, the game ends and you win! This took me around an 1 hour.
+
+Assignment 3:
+
+Sprite: https://craftpix.net/freebies/free-pixel-art-tiny-hero-sprites/
+
+Sound Effects: 
