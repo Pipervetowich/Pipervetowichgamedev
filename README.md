@@ -38,5 +38,11 @@ When you kill 50 slimes, the game ends and you win! This took me around an 1 hou
 Assignment 3:
 
 Sprite: https://craftpix.net/freebies/free-pixel-art-tiny-hero-sprites/
+Tree: https://graphscriptdev.itch.io/plant-trees
 
 Sound Effects: 
+Slime Death: https://freesound.org/people/vckhaze/sounds/332602/
+Player Walking: https://freesound.org/people/spycrah/sounds/535222/
+Hit: https://freesound.org/people/xtrgamr/sounds/261855/
+
+All in all, it took me around 4 ish hours. I already had some sound effects in placce and bkacground music. The longest part was getting the sprite to work with animations.
