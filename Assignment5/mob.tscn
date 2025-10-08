@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2m608gyssept"]
+
+[ext_resource type="Script" uid="uid://bay22nvpwdysf" path="res://mob.gd" id="1_xhyow"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="3_n2uyc"]
+[ext_resource type="AudioStream" uid="uid://cxws246hramcv" path="res://slimedeath.wav" id="3_ubaqv"]
+[ext_resource type="AudioStream" uid="uid://g1di467wo7g7" path="res://slimewalk.mp3" id="4_p11y5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ypitm"]
+radius = 67.0
+
+[node name="Mob" type="CharacterBody2D"]
+collision_layer = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_xhyow")
+
+[node name="Slime" parent="." instance=ExtResource("3_n2uyc")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_ypitm")
+debug_color = Color(0.701961, 0.282353, 0.352941, 0.419608)
+
+[node name="Slimedeath" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ubaqv")
+volume_db = -10.0
+
+[node name="Slimewalk" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_p11y5")
+volume_db = -10.0

@@ -1,0 +1,315 @@
+[gd_scene load_steps=11 format=3 uid="uid://dun1cpardk2xw"]
+
+[ext_resource type="Script" uid="uid://d2hsx0vjc6tce" path="res://game.gd" id="1_qclsr"]
+[ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://player.tscn" id="2_a7q7f"]
+[ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="3_6h7ij"]
+[ext_resource type="AudioStream" uid="uid://p5giusmqox0y" path="res://Gameover.wav" id="4_pk6fm"]
+[ext_resource type="Script" uid="uid://ccb6lc54tgsjv" path="res://counter.gd" id="4_qqaft"]
+[ext_resource type="Script" uid="uid://qc3dg7rw5oit" path="res://end_game.gd" id="5_7jj1j"]
+[ext_resource type="AudioStream" uid="uid://bxklbv48n5vq4" path="res://lofi-background-music-388291.mp3" id="6_edxvn"]
+[ext_resource type="PackedScene" uid="uid://ck11hcwqjkewp" path="res://gun3.tscn" id="8_getvi"]
+[ext_resource type="Script" uid="uid://cgf5rqka2eufl" path="res://settings.gd" id="9_3uxnc"]
+
+[sub_resource type="Curve2D" id="Curve2D_cp6e5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1055, -697, 0, 0, 0, 0, 1057, -697, 0, 0, 0, 0, 1057, 671, 0, 0, 0, 0, -1055, 663, 0, 0, 0, 0, -1055, -689)
+}
+point_count = 5
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_qclsr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_a7q7f")]
+platform_floor_layers = 4294967040
+
+[node name="Path2D" type="Path2D" parent="Player"]
+curve = SubResource("Curve2D_cp6e5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1055, -697)
+
+[node name="Counter" type="Node2D" parent="Player/Path2D"]
+script = ExtResource("4_qqaft")
+
+[node name="Timer" type="Timer" parent="Player/Path2D/Counter"]
+autostart = true
+
+[node name="Label" type="Label" parent="Player/Path2D/Counter"]
+offset_left = -82.0
+offset_top = -535.0
+offset_right = 82.0
+offset_bottom = -377.0
+theme_override_font_sizes/font_size = 116
+text = "0.0"
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133412, 0.133412, 0.133412, 0.439216)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.0
+offset_top = -107.0
+offset_right = 358.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 124
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gameover" type="AudioStreamPlayer" parent="GameOver"]
+unique_name_in_owner = true
+stream = ExtResource("4_pk6fm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -32
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 6.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.791912, 0.688588, 0.625109, 1)
+
+[node name="PineTree" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(66, 591)
+
+[node name="PineTree2" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(155, 643)
+
+[node name="PineTree3" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(-298, 278)
+
+[node name="PineTree4" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(682, 254)
+
+[node name="PineTree5" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(829, 384)
+
+[node name="PineTree11" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(781, -296)
+
+[node name="PineTree6" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(-404, 288)
+
+[node name="PineTree7" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(-788, 370)
+
+[node name="PineTree8" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(-829, 229)
+
+[node name="PineTree9" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(422, -148)
+
+[node name="PineTree10" parent="." instance=ExtResource("3_6h7ij")]
+position = Vector2(-573, -231)
+
+[node name="EndGame" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_7jj1j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="EndGame"]
+
+[node name="SlimeCounterLabel" type="Label" parent="EndGame/CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 19.0
+offset_top = 23.0
+offset_right = 781.0
+offset_bottom = 189.0
+theme_override_font_sizes/font_size = 86
+text = "Kills: 0/50"
+
+[node name="YouWin" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="YouWin"]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.145098, 0.145098, 0.780392)
+
+[node name="Label" type="Label" parent="YouWin/ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 522.0
+offset_top = 391.0
+offset_right = 1436.0
+offset_bottom = 686.0
+theme_override_font_sizes/font_size = 216
+text = "You Win!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_edxvn")
+volume_db = -10.0
+
+[node name="Lofi-background-music-388291" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_edxvn")
+volume_db = -10.0
+autoplay = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+offset_left = 1481.0
+offset_top = 159.0
+offset_right = 1870.0
+offset_bottom = 442.0
+color = Color(0.235294, 0.231373, 0.231373, 0.619608)
+
+[node name="Gun_1" parent="CanvasLayer2/ColorRect" instance=ExtResource("8_getvi")]
+position = Vector2(-10, 112)
+script = null
+
+[node name="Label" type="Label" parent="CanvasLayer2/ColorRect/Gun_1"]
+offset_left = 133.0
+offset_top = -25.0
+offset_right = 221.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 31
+text = "Gun 1
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Gun_2" parent="CanvasLayer2/ColorRect" instance=ExtResource("8_getvi")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-12, 205)
+script = null
+
+[node name="Label2" type="Label" parent="CanvasLayer2/ColorRect/Gun_2"]
+offset_left = 134.0
+offset_top = -32.0
+offset_right = 222.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 31
+text = "Gun 2
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer2/ColorRect"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 11.0
+offset_right = 287.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 41
+text = "Inventory"
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+offset_left = 1494.0
+offset_top = 442.0
+offset_right = 2190.0
+offset_bottom = 539.0
+theme_override_font_sizes/font_size = 38
+text = "Kill 50 Slimes to win!"
+
+[node name="Button" type="Button" parent="CanvasLayer2"]
+offset_left = 1713.0
+offset_top = 30.0
+offset_right = 1891.0
+offset_bottom = 77.0
+script = ExtResource("9_3uxnc")
+
+[node name="Label" type="Label" parent="CanvasLayer2/Button"]
+layout_mode = 0
+offset_left = 33.0
+offset_right = 153.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 31
+text = "Settings
+"
+
+[node name="SettingsMenu" type="ColorRect" parent="CanvasLayer2"]
+unique_name_in_owner = true
+visible = false
+offset_left = 643.0
+offset_top = 278.0
+offset_right = 1378.0
+offset_bottom = 778.0
+color = Color(0.343861, 0.337013, 0.337013, 0.721569)
+
+[node name="Label2" type="Label" parent="CanvasLayer2/SettingsMenu"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 113.0
+offset_right = 414.0
+offset_bottom = 204.0
+theme_override_font_sizes/font_size = 31
+text = "Health Potion Outlines
+"
+
+[node name="Label" type="Label" parent="CanvasLayer2/SettingsMenu"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 21.0
+offset_right = 410.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 31
+text = "Settings
+"
+
+[node name="Button3" type="Button" parent="CanvasLayer2/SettingsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.596
+anchor_top = 0.226
+anchor_right = 0.641
+anchor_bottom = 0.31
+offset_left = -0.0599976
+offset_right = -0.13501
+offset_bottom = 1.0
+
+[node name="Button2" type="Button" parent="CanvasLayer2/SettingsMenu"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 408.0
+offset_right = 444.0
+offset_bottom = 455.0
+script = ExtResource("9_3uxnc")
+
+[node name="Label" type="Label" parent="CanvasLayer2/SettingsMenu/Button2"]
+layout_mode = 0
+offset_left = 47.0
+offset_right = 167.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 31
+text = "Close
+"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="pressed" from="CanvasLayer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/SettingsMenu/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer2/SettingsMenu/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/SettingsMenu/Button2" to="." method="_on_button_2_pressed"]
