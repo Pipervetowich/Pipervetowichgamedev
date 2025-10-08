@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo4sss1xlpv4q"]
+
+[ext_resource type="Script" uid="uid://ewmqvklchtx6" path="res://healthtext.gd" id="1_5w8pq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5w8pq")
+
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "+20 Health
+"
