@@ -40,6 +40,12 @@ Assignment 3:
 Sprite: https://craftpix.net/freebies/free-pixel-art-tiny-hero-sprites/
 Tree: https://graphscriptdev.itch.io/plant-trees
 
+Assignment 5:
+
+I added more things to my UI which took me around 1.5 hours.
+
+I was having issues with my accessibility setting to work right so Im still wroking through that but its taken me roughly 3 hours working through bugs.
+
 Sound Effects: 
 Slime Death: https://freesound.org/people/vckhaze/sounds/332602/
 Player Walking: https://freesound.org/people/spycrah/sounds/535222/
